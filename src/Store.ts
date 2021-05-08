@@ -2,15 +2,17 @@ declare const STORE: KVNamespace
 
 export class Store{
   
-  put = async (key: string, value:  string | ReadableStream<any> | ArrayBuffer | FormData) => {
-    STORE.put(key, value);
+  static put = async (key: string, value:  string | ReadableStream<any> | ArrayBuffer | FormData) => {
+    console.log("Writing to the KV", key, value);
+    await STORE.put(key, value);
   }
 
-  get = async (key: string) => {
-    STORE.get(key, "text");
+  static get = async (key: string) => {
+    console.log("Getting from KV", key);
+    return await STORE.get(key, "text");
   }
 
-  list = async(prefix: string) => {
-    STORE.list({prefix, cursor:undefined});
+  static list = async(prefix: string) => {
+    return STORE.list({prefix, cursor:undefined});
   }
 }
