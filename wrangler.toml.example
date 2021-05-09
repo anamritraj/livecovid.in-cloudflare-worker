@@ -1,0 +1,21 @@
+name = "livecovid-in-api"
+type = "webpack"
+zone_id = ""
+account_id = ""
+workers_dev = true
+webpack_config = "webpack.config.js"
+
+kv_namespaces = [ 
+  { binding = "STORE", preview_id = "", id = "" }
+]
+
+[triggers]
+crons = ["*/10 * * * *"]
+
+[env.production]
+workers_dev = true
+route = "cache.livecovid.in/*"
+
+kv_namespaces = [ 
+  { binding = "STORE", id = "" }
+]
