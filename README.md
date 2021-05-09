@@ -4,7 +4,7 @@ API for [livecovid.in-webapp](https://github.com/anamritraj/livecovid.in-webapp)
 
 The reason why this exists is because I personally own a very teeny tiny server, and it was not able to respond within resonable time limits given the traffic these days. So this is an attempt to not buy more server capacity and save some bucks. (Which I think is inevitable).
 
-This works by using cloudflare workers which is a pretty neat. What we are essentially doing in this repo is calling the source API(api.livecovid.in) and caching that data to cloudflare's global CDN (KV store, as they call it) for fast access.
+This works by using cloudflare workers which is a pretty neat offering from the guys at Cloudflare. What we are essentially doing in this repo is calling the source API(api.livecovid.in) and caching that data to cloudflare's global CDN (KV store, as they call it) for fast access.
 
 To update these caches I am utilizing cron triggers which is another fetaure of cloudflare workers which enables you to run scripts at predefined intervals and update the cache(KV store) if you want to.
 
